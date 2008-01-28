@@ -1,0 +1,61 @@
+<html>
+
+<head>
+ 
+ <title></title>
+ <meta name="generator" content="<TMPL_VAR NAME=GENERATOR>">
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+ <style type="text/css">
+  body {margin:1; padding:1; background:#fff; font-family:Arial;}
+  h1 {text-decoration: underline;}
+  a {color:#007CD0;}
+  a:hover {text-decoration: underline;}
+  hr {width: 500px;}
+  .settings {display: block; background: #f8f8f8; color: #000; width: 500px; font-family: Tahoma; font-size: 12px;}
+  .settings h2 {background: #ccc; color: #000;}
+  .bad {display: block; background-color: #ff6e6e; width: 500px;}
+  .good {display: block; background-color: #6eff6e; width: 500px; font-size: 15px; text-align: center;}
+  .delimiter {clear: both;}
+  .settings .delimiter {border-bottom:1px dotted #d5d5d5;}
+ </style>
+
+ <!--<script>
+  function highlightBlock(id, state) {
+    var color = '';
+    if(state == 0) { color = '#1e303c' }
+    else { color = '#354550' }  
+    document.getElementById(id).style.backgroundColor = color;
+  }
+ </script>-->
+
+<head>
+
+<body>
+ 
+ <h1>Settings information</h1>
+ <div class="settings">
+ <h2>Settings:</h2>
+ <TMPL_LOOP NAME=SETTINGS>
+  <TMPL_VAR NAME=OPTION>:&nbsp;&nbsp;&nbsp;<TMPL_VAR NAME=OPTVALUE></p>
+  <div class="delimiter"></div>
+ </TMPL_LOOP>
+ </div> 
+ 
+ <hr align="left">
+ 
+ <h1>Fuzz information</h1>
+ <TMPL_IF NAME=FOUND>
+  <div class="bad">
+  <TMPL_LOOP NAME=FUZZ>
+   <TMPL_VAR NAME=DESC>
+   <div class="delimiter"></div>
+  </TMPL_LOOP>
+  </div>
+ <TMPL_ELSE>
+   <div class="good">No overflows found!</div>
+ </TMPL_IF>
+ 
+</body>
+
+</html>

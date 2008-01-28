@@ -1,0 +1,8 @@
+lib/Fuzz.pm
+t/01basic.t
+t/02complex.t
+report.tmpl
+Makefile.PL
+INSTALL
+README
+MANIFEST
