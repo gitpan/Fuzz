@@ -30,6 +30,9 @@ SKIP: {
 	$obj->LoadProtocolPreset( 'FTP', 'test', 'test' );    
 	ok( $obj->LoadProtocolPreset eq 'FTP', 'Protocol presets works properly' );
 
+	eval { use Data::Generate };
+	skip('Data::Generate not installed', 1) if $@;
+	
 	$obj->AddFuzzCategory( 'Test', 'VC(2) [a-b]', qr/(\w{2})/ );
 	ok( ref $obj->Test eq 'HASH', 'Custom data categories works properly' );
 
